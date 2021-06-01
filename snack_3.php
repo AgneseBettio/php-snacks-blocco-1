@@ -43,9 +43,65 @@ $posts = [
         ]
     ],
 ];
-var_dump($posts['16/01/2021']);
-var_dump($posts['07/04/2021']);
-var_dump($posts['01/05/2021']);
+// var_dump($posts['16/01/2021']);
+// var_dump($posts['07/04/2021']);
+// var_dump($posts['01/05/2021']);
 
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul>
+        <?php
+
+        $keysMap = array_keys($posts);
+        var_dump($keysMap);
+
+        for ($i = 0; $i < count($posts); $i++) {
+            $key = $keysMap[$i];
+            $value = $posts[$key];
+        ?>
+            <li>
+                <?php
+                echo $key;
+                ?>
+                <ul>
+                    <?php
+                    for ($j = 0; $j < count($value); $j++) {
+                        $eachPost = $value[$j];
+                    ?>
+                        <li>
+                            <?php
+                            echo $eachPost['title'];
+                            echo '<br>';
+                            echo $eachPost['author'];
+                            echo '<br>';
+                            echo $eachPost['text'];
+                            ?>
+                        </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </li>
+
+        <?php
+        }
+        ?>
+
+
+    </ul>
+
+</body>
+
+</html>
