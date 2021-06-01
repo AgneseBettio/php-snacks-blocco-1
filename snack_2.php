@@ -14,28 +14,26 @@ $validMail = true;
 $validAge = true;
 
 //controllo nome
-if(strlen($name) < 3){
+if (strlen($name) < 3) {
     $validName = false;
 }
 //controllo mail 
-if (strpos($mail,'@') === false) {
+if (strpos($mail, '@') === false) {
     $validMail = false;
-
-
-} elseif (strrpos($mail,'.') === false) {
+} elseif (strrpos($mail, '.', strpos($mail,"@")) === false) {
     $validMail = false;
-
 }
 //controllo age
-if(!is_numeric($age)) {
+if (!is_numeric($age)) {
     $validAge = false;
 }
 
 
-if($validName && $validMail && $validAge){
+if ($validName && $validMail && $validAge) {
 
     echo "accesso riuscito";
-
+}else{
+    echo "accesso negato";
 }
 
 ?>

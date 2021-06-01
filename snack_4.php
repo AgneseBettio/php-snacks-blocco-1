@@ -26,6 +26,8 @@ for ($i = 0; $i < 15; $i++) {
     $rndNum = rand(1, 100);
     if (!in_array($rndNum, $forArray)) {
         $forArray[] = $rndNum;
+    } else {
+        $i--;
     }
 
 }
